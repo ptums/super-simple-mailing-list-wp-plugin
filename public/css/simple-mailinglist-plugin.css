@@ -1,0 +1,26 @@
+#ssmailing_table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top:10px;
+    position:relative;
+    right:220px;
+
+}
+
+#ssmailing_table td, #ssmailing_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#ssmailing_table tr:nth-child(even){background-color: #f2f2f2;}
+
+#ssmailing_table tr:hover {background-color: #ddd;}
+
+#ssmailing_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #D02422;
+    color: white;
+}
