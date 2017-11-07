@@ -1,3 +1,3 @@
-# Plugin Sandbox
+# Mailing List For Blogs Widget
 
-Messing around with wordpress plugin development. Should be coming out with one of my own soon enough.
+Custom Mailing List Widget to allow users to subscribe to our feeds based on their selected category.
