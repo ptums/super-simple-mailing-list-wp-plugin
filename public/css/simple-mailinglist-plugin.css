@@ -24,3 +24,9 @@
     background-color: #D02422;
     color: white;
 }
+
+#list_categories{
+    position: relative;
+    right: 222px;
+    margin-top: -7px;
+}

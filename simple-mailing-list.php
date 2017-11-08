@@ -13,14 +13,12 @@ License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 // if user is in admin area
 if (is_admin() ){
-
   // include dependencies
   require_once plugin_dir_path(__FILE__) . 'admin/admin-menu.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-page.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-register.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-callbacks.php';
   require_once plugin_dir_path(__FILE__) . 'includes/core-functions.php';
-  require_once plugin_dir_path(__FILE__) . 'includes/subscriber-shortcode.php';
 
 }
 
@@ -29,8 +27,11 @@ require_once plugin_dir_path(__FILE__) . 'admin/db.php';
 register_activation_hook( __FILE__, 'subscriber_db' );
 
 
-// Email Creation
+// Shortcode Creation
+require_once plugin_dir_path(__FILE__) . 'includes/subscriber-shortcode.php';
+add_shortcode('sh_law_mailing_list', 'sh_law_mailing_list');
 
+// Email Creation
 require_once plugin_dir_path(__FILE__) . 'admin/classes/emails.php';
 function email_subscriber_latest_post($email="", $categories=""){
 
@@ -39,6 +40,8 @@ function email_subscriber_latest_post($email="", $categories=""){
 }
 
 // add an action to fire off this function when a new blog post is published
+
+
 
 
 

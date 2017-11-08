@@ -18,24 +18,29 @@ function ssmailing_callback_section_login() {
 }
 
 
-
-// NEED TO FIGURE OUT A WAY TO BIND THE DATA IN THE ROW TO TEH DELETE BUTTON IN THE ROW ???
-
 // build subscriber table
 function ssmailing_callback_subscriber_table() {
   // query database for results
   global $wpdb;
   $result = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix.'blog_subscribers_sh');
+  $site_categories = get_categories();
   $table = "";
-  $table .="<table id='ssmailing_table'><tbody><tr><th>Email</th><th>Categories</th><th>Actions</th></tr>";
-  // and nail down which items, but which one has been check and match everything with that id
+
+  /**
+  * Build Table
+  **/
+
+  // Loop through categories so people can copy and paste them
+
+  $table .="</h3><table id='ssmailing_table'><tbody><tr><th>Email</th><th>Categories</th><th>Actions</th></tr>";
+  // loop through all data retrieved from query to db
   foreach($result as $key => $value){
     $id = $value->id;
     $email = $value->email;
     $categories = $value->categories;
     $table .="<tr class='user-".$id."'>";
-    $table .="<td><input type='hidden' name='id[".$id."]' value='".$id."'/><input name='email[".$id."]' id='email' value='".$email."' style='width: 280px;'/></td>";
-    $table .="<td><input name='categories[".$id."]' id='categories' value='".$categories."' style='width:500px;'/></td><td>";
+    $table .="<td><input type='hidden' name='id[".$id."]' value='".$id."'/><input type='text' name='email[".$id."]' id='email' value='".$email."' style='width: 280px;'/></td>";
+    $table .="<td><input type='textarea' name='categories[".$id."]' id='categories' value='".$categories."' style='width:500px;'/></td><td>";
     $table .="<input type='checkbox' name='edit_check[".$id."]' id='".$id."'/ value='Edit'>Edit</input> ";
     $table .="<input type='checkbox'  style='margin-left:10px;' name='delete_check[".$id."]' id='".$id."'/ value='Delete'>Delete</input></tr>";
   }

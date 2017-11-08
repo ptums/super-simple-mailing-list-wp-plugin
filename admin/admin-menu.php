@@ -12,8 +12,8 @@ function ssmailing_add_sublevel_menu() {
 
   add_submenu_page(
     'options-general.php',
-    'Simple Mailing List',
-    'Post Mailing List',
+    'SH-Law Blog Mailing List',
+    'SH Blog Mailing List',
     'manage_options',
     'ssmailing',
     'ssmailing_display_settings_page'
