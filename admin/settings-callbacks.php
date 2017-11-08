@@ -41,11 +41,8 @@ function ssmailing_callback_subscriber_table() {
     $table .="<input type='checkbox'  style='margin-left:10px;' name='delete_check[".$id."]' id='".$id."'/ value='Delete'>Delete</input></tr>";
   }
   $table .="</tbody></table>";
+
   echo $table;
-  return $table ;
+  return true;
+
 }
-
-
-
-
-// add users to subscriber table

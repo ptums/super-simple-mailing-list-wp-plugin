@@ -4,14 +4,12 @@
 if( !defined('ABSPATH')) { exit; }
 
 // check if user is allowed access
-function ssmailing_display_settings_page(){
+function ssmailing_display_settings_page() {
+
   if( ! current_user_can('manage_options')) return ;
 
-  ?>
-
-<?php
-
-if(isset($_POST)){
+// run all methods if $_POST variables are set
+if(isset($_POST)) {
   // load CRUD operations class to operate on table data
   require_once dirname(__FILE__) . '/classes/operations.php';
 

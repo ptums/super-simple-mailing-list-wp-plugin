@@ -12,7 +12,7 @@ License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
 // if user is in admin area
-if (is_admin() ){
+if (is_admin() ) {
   // include dependencies files to create admin area pages and features
   require_once plugin_dir_path(__FILE__) . 'admin/admin-menu.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-page.php';

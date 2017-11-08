@@ -13,4 +13,3 @@ Custom Mailing List Widget to allow users to subscribe to our feeds based on the
 3. Refactor and comment until its perfect
 4. Replace README wil pro plugin readme
 5. Rename everything away from SH
-6. add space between { and function name

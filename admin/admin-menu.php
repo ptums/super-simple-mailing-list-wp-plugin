@@ -14,5 +14,7 @@ function ssmailing_add_sublevel_menu() {
     'ssmailing',
     'ssmailing_display_settings_page'
   );
+  
 }
+
 add_action('admin_menu', 'ssmailing_add_sublevel_menu');

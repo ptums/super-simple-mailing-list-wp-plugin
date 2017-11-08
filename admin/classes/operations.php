@@ -16,6 +16,7 @@ class TableOperations {
   public function __construct() {
     global $wpdb;
     $this->wpdb = $wpdb;
+    
     // get table
     $this->table_name = $this->wpdb->prefix . "blog_subscribers_sh";
   }
@@ -61,7 +62,7 @@ class TableOperations {
 
     // create query
 
-    // check if email already exists 
+    // check if email already exists
 
     // execute query
 
