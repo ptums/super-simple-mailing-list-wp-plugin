@@ -10,3 +10,6 @@ Custom Mailing List Widget to allow users to subscribe to our feeds based on the
 2. Create Shortcode with an email input, a select category link, and a list of checkbox categories
     1. Make sure that email input and categories selected show up in database
     2. Make sure that they are rendered in the table in the admin area
+3. Refactor and comment until its perfect
+4. Replace README wil pro plugin readme
+5. Rename everything away from SH 

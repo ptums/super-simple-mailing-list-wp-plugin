@@ -13,7 +13,7 @@ License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 // if user is in admin area
 if (is_admin() ){
-  // include dependencies
+  // include dependencies files to create admin area pages and features
   require_once plugin_dir_path(__FILE__) . 'admin/admin-menu.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-page.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-register.php';
@@ -22,7 +22,7 @@ if (is_admin() ){
 
 }
 
-// load or create table schema and data on plugin activation
+// Load or create table schema and data on plugin activation
 require_once plugin_dir_path(__FILE__) . 'admin/db.php';
 register_activation_hook( __FILE__, 'subscriber_db' );
 
