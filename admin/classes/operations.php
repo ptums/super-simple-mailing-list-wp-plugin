@@ -13,7 +13,7 @@ class TableOperations {
   private $flush;
 
   // making global $wpdb class avaiable to other functions
-  public function __construct(){
+  public function __construct() {
     global $wpdb;
     $this->wpdb = $wpdb;
     // get table
@@ -21,7 +21,7 @@ class TableOperations {
   }
 
   // delete subscriber function
-  public function delete_subscriber($id=[]){
+  public function delete_subscriber($id=[]) {
 
     // deletion query
     $sql = "DELETE FROM ".$this->table_name." WHERE id =".$id." LIMIT 1";
@@ -35,7 +35,7 @@ class TableOperations {
   }
 
   // edit subscriber function
-  public function edit_subscriber($id="", $email="", $categories=""){
+  public function edit_subscriber($id="", $email="", $categories="") {
 
     //sanitize values
     $ems = sanitize_text_field($email);
@@ -47,9 +47,23 @@ class TableOperations {
     //execute query
     $this->wpdb->query($sql);
 
-    // update row id numbers and flush cache
+    // flush cache
     $this->wpdb->flush();
 
+  }
+
+  // create subscriber function
+  public function create_subscriber($email="", $categories="") {
+
+    // convert array to string
+
+    // sanitize values
+
+    // create query
+
+    // execute query
+
+    // flush cache
   }
 
 }
