@@ -20,15 +20,24 @@ if (is_admin() ){
   require_once plugin_dir_path(__FILE__) . 'admin/settings-register.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-callbacks.php';
   require_once plugin_dir_path(__FILE__) . 'includes/core-functions.php';
-  
-
 
 }
 
-// load assets on plugin activation
+// load or create table schema and data on plugin activation
 require_once plugin_dir_path(__FILE__) . 'admin/db.php';
 register_activation_hook( __FILE__, 'subscriber_db' );
 
+
+// Email Creation
+
+require_once plugin_dir_path(__FILE__) . 'admin/classes/emails.php';
+function email_subscriber_latest_post($email="", $categories=""){
+
+  return $email. " ". $categories;
+
+}
+
+// add an action to fire off this function when a new blog post is published
 
 
 
