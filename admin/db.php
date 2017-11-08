@@ -19,7 +19,7 @@ function subscriber_db () {
    $charset_collate = $wpdb->get_charset_collate();
 
    // query to database
-   $sql = "IF $table_name DOES NOT EXIST CREATE TABLE $table_name (
+   $sql = "CREATE TABLE $table_name (
      id mediumint(9) NOT NULL AUTO_INCREMENT,
      time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
      email VARCHAR (500) NOT NULL,

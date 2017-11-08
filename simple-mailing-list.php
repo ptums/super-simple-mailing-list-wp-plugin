@@ -20,6 +20,7 @@ if (is_admin() ){
   require_once plugin_dir_path(__FILE__) . 'admin/settings-register.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-callbacks.php';
   require_once plugin_dir_path(__FILE__) . 'includes/core-functions.php';
+  require_once plugin_dir_path(__FILE__) . 'includes/subscriber-shortcode.php';
 
 }
 
@@ -38,6 +39,8 @@ function email_subscriber_latest_post($email="", $categories=""){
 }
 
 // add an action to fire off this function when a new blog post is published
+
+
 
 
 

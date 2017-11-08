@@ -45,6 +45,10 @@ if(isset($_POST)){
     if(isset($_POST['edit_check'])){
       $sub_edit = $_POST['edit_check'];
       // check for items set to be edited
+      foreach($sub_edit as $key => $value){
+        // run edit operation
+        $table_operations->edit_subscriber($key, $sub_email[$key], $sub_cat[$key]);
+      }
 
     }
 
@@ -54,12 +58,10 @@ if(isset($_POST)){
       // check for items set to be deleted
         foreach ($sub_del as $key => $value){
           // run deletion operation
-
+          $table_operations->delete_subscriber($key);
 
         }
 
-
-        echo $hello_world_message;
     }
   }
 }
