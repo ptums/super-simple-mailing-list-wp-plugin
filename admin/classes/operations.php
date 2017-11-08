@@ -61,6 +61,8 @@ class TableOperations {
 
     // create query
 
+    // check if email already exists 
+
     // execute query
 
     // flush cache
