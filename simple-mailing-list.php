@@ -32,14 +32,8 @@ require_once plugin_dir_path(__FILE__) . 'includes/subscriber-shortcode.php';
 add_shortcode('sh_law_mailing_list', 'sh_law_mailing_list');
 
 // Email Creation
-require_once plugin_dir_path(__FILE__) . 'admin/classes/emails.php';
-function email_subscriber_latest_post($email="", $categories=""){
-
-  return $email. " ". $categories;
-
-}
-
-// add an action to fire off this function when a new blog post is published
+// require_once plugin_dir_path(__FILE__) . 'includes/email-creation.php';
+// add_action('publish_post', 'send_post_notification_to_subscriber');
 
 
 
