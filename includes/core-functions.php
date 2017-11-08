@@ -1,4 +1,7 @@
-<?php
+<?php // Shortcode Plugin - Loading Custom Scripts
+
+// exit if file is called directly
+if( !defined('ABSPATH')) { exit; }
 
 // custom css and javascript files
 function shssmailing_custom_styles() {

@@ -1,5 +1,7 @@
-<?php
+<?php // Shortcode Widget - Email Action Function
 
+// exit if file is called directly
+if( !defined('ABSPATH')) { exit; }
 
 function send_post_notification_to_subscriber(){
 

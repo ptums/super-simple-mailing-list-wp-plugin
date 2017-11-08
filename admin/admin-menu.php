@@ -1,11 +1,7 @@
-<?php // MyPlugin - Admin Menu
+<?php // Shortcode Mailing List - Admin Menu
 
 // exit if file is called directly
-if( !defined('ABSPATH')) {
-
-  exit;
-
-}
+if( !defined('ABSPATH')) { exit; }
 
 // add top-level administrative menu
 function ssmailing_add_sublevel_menu() {

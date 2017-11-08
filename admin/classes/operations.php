@@ -1,5 +1,8 @@
 <?php
 
+// exit if file is called directly
+if( !defined('ABSPATH')) { exit; }
+
 // Table Crud Operations
 class TableOperations {
 

@@ -1,11 +1,7 @@
 <?php //MyPlugin - Settings Callbacks
 
 // exit if file is called directly
-if( !defined('ABSPATH')) {
-
-  exit;
-
-}
+if( !defined('ABSPATH')) { exit; }
 
 // defualt
 function ssmailing_section_no_list() {

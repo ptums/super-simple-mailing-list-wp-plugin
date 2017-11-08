@@ -1,11 +1,7 @@
 <?php // Create Subscriber Database
 
 // exit if file is called directly
-if( !defined('ABSPATH')) {
-
-  exit;
-
-}
+if( !defined('ABSPATH')) { exit; }
 
 // create table
 function subscriber_db () {

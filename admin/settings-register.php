@@ -1,11 +1,7 @@
-<?php //MyPlugin - Register Settings
+<?php //Shortcode Mailing List - Register Settings
 
 // exit if file is called directly
-if( !defined('ABSPATH')) {
-
-  exit;
-
-}
+if( !defined('ABSPATH')) { exit; }
 
 // register plugin settings
 function ssmailing_register_settings() {
