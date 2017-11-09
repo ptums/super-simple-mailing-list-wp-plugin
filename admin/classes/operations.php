@@ -30,6 +30,13 @@ class TableOperations {
     $this->wpdb->flush();
   }
 
+  // check if entry exists function
+  public function check_entry_exists($email="") {
+    $check_query = "SELECT * FROM ".$this->table_name." WHERE email='".$email."' LIMIT 1";
+    $verify_query = $this->wpdb->query($check_query);
+    return $verify_query;
+  }
+
   // delete subscriber function
   public function delete_subscriber($id=[]) {
 
@@ -60,18 +67,35 @@ class TableOperations {
   public function create_subscriber($email="", $categories="") {
 
     // convert array to string
-
+    $cats = implode(",", $categories);
     // sanitize values
+    $email = sanitize_text_field($email);
+    $cats = sanitize_text_field($cats);
 
-    // create query
+    //check and execute query
+     $check_entry = $this->check_entry_exists($email);
 
-    // check if email already exists
+    // run query if entry does not exist
+    if($check_entry){
+      $email = "";
+      $cats = "";
+      return "Sorry this email already exists.";
 
-    // execute query
+    }else{
+      // insert query
+      $sql = "INSERT INTO ".$this->table_name." (`id`, `time`, `email`, `categories`) VALUES (default ,NOW(),'".$email."','".$cats."')";
+      // execute query
+      $this->execute_query($sql);
+      $email = "";
+      $cats = "";
+      return "You've been added to our mailing list. Congratulations!";
 
-    // flush cache
-    echo "hello World!";
+
+
+
+    }
   }
+
 
 
 
