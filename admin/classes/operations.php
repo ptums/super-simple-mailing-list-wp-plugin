@@ -21,17 +21,23 @@ class TableOperations {
     $this->table_name = $this->wpdb->prefix . "blog_subscribers_sh";
   }
 
+  // execute query function
+  public function execute_query($sql="") {
+    //execute query
+    $this->wpdb->query($sql);
+
+    // flush cache
+    $this->wpdb->flush();
+  }
+
   // delete subscriber function
   public function delete_subscriber($id=[]) {
 
     // deletion query
     $sql = "DELETE FROM ".$this->table_name." WHERE id =".$id." LIMIT 1";
 
-    //execute query
-    $this->wpdb->query($sql);
-
-    // update row id numbers and flush cache
-    $this->wpdb->flush();
+    // execute query
+    $this->execute_query($sql);
 
   }
 
@@ -45,11 +51,8 @@ class TableOperations {
     // update query
     $sql ="UPDATE ".$this->table_name." SET email='".$ems."', categories='".$cats."' WHERE id=".$id." LIMIT 1";
 
-    //execute query
-    $this->wpdb->query($sql);
-
-    // flush cache
-    $this->wpdb->flush();
+    // execute query
+    $this->execute_query($sql);
 
   }
 
@@ -69,6 +72,8 @@ class TableOperations {
     // flush cache
     echo "hello World!";
   }
+
+
 
 }
 $table_operations = new TableOperations();

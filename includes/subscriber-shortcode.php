@@ -16,13 +16,36 @@ function sh_law_mailing_list() {
   // load CRUD operations class to operate on table data
   require_once clean_up_URLS('admin/classes/operations.php');
 
+  // retrieve and post values selected by user
+  if(isset($_POST)){
+
+
+    // insert data into database
+    //$table_operations->create_subscriber();
+
+  }
+
+
+
+  // list of categories
+  $category_list = array('Bankruptcy', 'Cyber Security', 'Intellectual Property', ' Commercial Real Estate');
+
+
+  // buildout HTML for form and render it to DOM
   $signup_form = "";
   $signup_form .= "<form action='' method='post'>";
   $signup_form .="<input type='text' name='user_email' value='Email Address'/>";
   $signup_form .="</input><br/>";
-  $signup_form .="<span id='ssselect_category'>Select Category</span>";
+  $signup_form .="<span id='ssselect_category' class='ssselect_item_center'>Select Category</span>";
+  $signup_form .= "<div id='sselect_category_list'>";
+  $signup_form .= "<ul>";
+  foreach($category_list as $item) {
+    $signup_form .="<li><div><input type='checkbox' name='cat[]' value='category' class='sscat_item'id='".$item."'>";
+    $signup_form .= "<label class='sscat_label' for='".$item."'>".$item."</label></div></li>";
+  }
+  $signup_form .= "</ul><input type='submit' id='sssubscribe_button' class='ssselect_item_center' value='Subscribe'/></div>";
   $signup_form .="</form>";
-  //$table_operations->create_subscriber();
+
 
   return $signup_form;
 }
