@@ -9,16 +9,19 @@ function clean_up_URLS($url) {
   return $url;
 }
 
+
+// declare variables that will be used in POST and clearing them if they are defined
+$email = "";
+$selected_categories = array();
+
+
 // shortcode function
-function sh_law_mailing_list() {
+function ss_subscriber() {
   // load CRUD operations class to operate on table data
   require_once clean_up_URLS('admin/classes/operations.php');
 
   // retrieve and post values selected by user
   if(isset($_POST)){
-
-    $email = "";
-    $selected_categories = array();
 
     // check if there is a value for 'email'
     if(isset($_POST['user_email'])){
@@ -34,7 +37,8 @@ function sh_law_mailing_list() {
 
     // insert data into database
     $create_user = $table_operations->create_subscriber($email, $selected_categories);
-    echo $create_user;
+
+
   }else{
     $email = "";
     $selected_categories = array();
@@ -52,6 +56,7 @@ function sh_law_mailing_list() {
   $signup_form .="<span id='ssselect_category' class='ssselect_item_center'>Select Category</span>";
   $signup_form .= "<div id='sselect_category_list'>";
   $signup_form .= "<ul>";
+
   foreach($category_list as $item) {
     $signup_form .="<li><div><input type='checkbox' name='cat[]' value='".$item."' class='sscat_item'id='".$item."'>";
     $signup_form .= "<label class='sscat_label' for='".$item."'>".$item."</label></div></li>";

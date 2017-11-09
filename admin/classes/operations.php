@@ -18,7 +18,7 @@ class TableOperations {
     $this->wpdb = $wpdb;
 
     // get table
-    $this->table_name = $this->wpdb->prefix . "blog_subscribers_sh";
+    $this->table_name = $this->wpdb->prefix . "ss_subscribers";
   }
 
   // execute query function
@@ -72,28 +72,33 @@ class TableOperations {
     $email = sanitize_text_field($email);
     $cats = sanitize_text_field($cats);
 
+    //confirmation message
+    $message;
+
     //check and execute query
      $check_entry = $this->check_entry_exists($email);
 
     // run query if entry does not exist
     if($check_entry){
-      $email = "";
-      $cats = "";
-      return "Sorry this email already exists.";
 
-    }else{
+      // create message
+      $message ="Sorry this email already exists.";
+
+    }else if(!$check_entry){
+
       // insert query
       $sql = "INSERT INTO ".$this->table_name." (`id`, `time`, `email`, `categories`) VALUES (default ,NOW(),'".$email."','".$cats."')";
-      // execute query
+
+      // execute query and update message
       $this->execute_query($sql);
-      $email = "";
-      $cats = "";
-      return "You've been added to our mailing list. Congratulations!";
+      $message = "You've been added to our mailing list. Congratulations!";
 
-
-
-
+    }else{
+      $message = "";
     }
+
+    // return a message
+    return $message;
   }
 
 

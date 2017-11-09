@@ -9,7 +9,7 @@ function subscriber_db () {
   global $wpdb;
 
    // table name
-   $table_name = $wpdb->prefix . "blog_subscribers_sh";
+   $table_name = $wpdb->prefix . "ss_subscribers";
 
    // set charset for data...cleans up any conversion errors
    $charset_collate = $wpdb->get_charset_collate();

@@ -10,4 +10,3 @@ Custom Mailing List Widget to allow users to subscribe to our feeds based on the
 2. Stylize Mailing List Front
 3. Refactor and comment until its perfect
 4. Replace README wil pro plugin readme
-5. Fix headers issue  

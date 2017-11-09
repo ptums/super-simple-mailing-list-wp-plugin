@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: SH SS Mailing Widget
+Plugin Name: SS Mailing Widget
 Description: a simple plugin that will build an editable mailing list and send out recent blog posts based on category.
 Plugin URI: https://github.com/ptums/wp-plugin-dev-sandbox
 Author: PTums
@@ -32,7 +32,7 @@ register_activation_hook( __FILE__, 'subscriber_db' );
 
 // Shortcode Creation
 require_once plugin_dir_path(__FILE__) . 'includes/subscriber-shortcode.php';
-add_shortcode('sh_law_mailing_list', 'sh_law_mailing_list');
+add_shortcode('ss_subscriber', 'ss_subscriber');
 
 // Email Creation
 // require_once plugin_dir_path(__FILE__) . 'includes/email-creation.php';

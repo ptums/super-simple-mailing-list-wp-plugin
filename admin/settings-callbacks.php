@@ -18,17 +18,21 @@ function ssmailing_callback_section_login() {
 function ssmailing_callback_subscriber_table() {
   // query database for results
   global $wpdb;
-  $result = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix.'blog_subscribers_sh');
+  $result = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix.'ss_subscribers');
   $site_categories = get_categories();
-  $table = "";
 
   /**
   * Build Table
   **/
 
+  // Initialize table
+  $table = "";
+
   // Loop through categories so people can copy and paste them
+  if($result){
 
   $table .="</h3><table id='ssmailing_table'><tbody><tr><th>Email</th><th>Categories</th><th>Actions</th></tr>";
+
   // loop through all data retrieved from query to db
   foreach($result as $key => $value){
     $id = $value->id;
@@ -40,8 +44,16 @@ function ssmailing_callback_subscriber_table() {
     $table .="<input type='checkbox' name='edit_check[".$id."]' id='".$id."'/ value='Edit'>Edit</input> ";
     $table .="<input type='checkbox'  style='margin-left:10px;' name='delete_check[".$id."]' id='".$id."'/ value='Delete'>Delete</input></tr>";
   }
-  $table .="</tbody></table>";
 
-  echo $table;  
+  $table .="</tbody></table>";
+  echo $table;
+
+}else{
+  
+  $table = "<span style='position:relative; right:28%;'>Start getting subscribers!</span>";
+  echo $table;
+
+}
+
 
 }
