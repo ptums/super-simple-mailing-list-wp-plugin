@@ -42,7 +42,6 @@ function ssmailing_callback_subscriber_table() {
   }
   $table .="</tbody></table>";
 
-  echo $table;
-  return true;
+  echo $table;  
 
 }

@@ -16,7 +16,7 @@ class TableOperations {
   public function __construct() {
     global $wpdb;
     $this->wpdb = $wpdb;
-    
+
     // get table
     $this->table_name = $this->wpdb->prefix . "blog_subscribers_sh";
   }
@@ -67,6 +67,7 @@ class TableOperations {
     // execute query
 
     // flush cache
+    echo "hello World!";
   }
 
 }

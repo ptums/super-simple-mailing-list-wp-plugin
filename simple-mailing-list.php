@@ -11,6 +11,10 @@ License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
+
+// load style and script resources
+require_once plugin_dir_path(__FILE__) . 'includes/core-functions.php';
+
 // if user is in admin area
 if (is_admin() ) {
   // include dependencies files to create admin area pages and features
@@ -18,7 +22,6 @@ if (is_admin() ) {
   require_once plugin_dir_path(__FILE__) . 'admin/settings-page.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-register.php';
   require_once plugin_dir_path(__FILE__) . 'admin/settings-callbacks.php';
-  require_once plugin_dir_path(__FILE__) . 'includes/core-functions.php';
 
 }
 
