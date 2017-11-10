@@ -47,7 +47,6 @@ function ss_subscriber() {
   // list of categories
   $category_list = array('All', 'Bankruptcy', 'Cyber Security', 'Intellectual Property', ' Commercial Real Estate');
 
-
   // buildout HTML for form and render it to DOM
   $signup_form = "";
   $signup_form .= "<form action='' method='post'>";

@@ -49,7 +49,7 @@ function ssmailing_callback_subscriber_table() {
   echo $table;
 
 }else{
-  
+
   $table = "<span style='position:relative; right:28%;'>Start getting subscribers!</span>";
   echo $table;
 
