@@ -1,9 +1,9 @@
 === Simple Subscription Plugin ===
 Contributors: Peter Tumulty
-Donate link: http://smallwebsitehost.com/
+Author URL: http://ptums.me
 Tags: blogs, opt-in, email marketing, newsletter plugin, admin, plugin, email, mail, wordpress
-Requires at least: 2.6.0
-Tested up to: 2.6.5
+Requires at least: 4.8.3
+Tested up to: 4.8.3
 Stable tag: 1.0
 
 == Description ==
