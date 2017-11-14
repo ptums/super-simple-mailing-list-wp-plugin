@@ -4,8 +4,18 @@
     width: 100%;
     margin-top:10px;
     position:relative;
-    right:11%;
+    right: 14%;
+}
 
+#available_cats {
+  position:relative;
+  right:14%;
+}
+.cat_selection{
+  margin-right:20px;
+}
+.cat_name{
+  margin-right:13px;
 }
 
 #ssmailing_table td, #ssmailing_table th {

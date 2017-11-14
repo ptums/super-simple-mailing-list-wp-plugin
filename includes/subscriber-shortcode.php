@@ -9,14 +9,12 @@ function clean_up_URLS($url) {
   return $url;
 }
 
-
-// declare variables that will be used in POST and clearing them if they are defined
-$email = "";
-$selected_categories = array();
-
-
 // shortcode function
 function ss_subscriber() {
+
+  // declare variables that will be used in POST and clearing them if they are defined
+  $email = "";
+  $selected_categories = array();
   // load CRUD operations class to operate on table data
   require_once clean_up_URLS('admin/classes/operations.php');
 
@@ -44,8 +42,18 @@ function ss_subscriber() {
     $selected_categories = array();
   }
 
-  // list of categories
-  $category_list = array('All', 'Bankruptcy', 'Cyber Security', 'Intellectual Property', ' Commercial Real Estate');
+  $category_list = array();
+
+
+  // loop through categories and push names into category_list
+
+  foreach(get_categories() as $cat) {
+    // remove uncategorized from list
+    if($cat->name !== "Uncategorized") {
+        $category_list[] = $cat->name;
+    }
+  }
+
 
   // buildout HTML for form and render it to DOM
   $signup_form = "";

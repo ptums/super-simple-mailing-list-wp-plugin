@@ -19,7 +19,7 @@ function ssmailing_callback_subscriber_table() {
   // query database for results
   global $wpdb;
   $result = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix.'ss_subscribers');
-  $site_categories = get_categories();
+
 
   /**
   * Build Table
@@ -28,10 +28,25 @@ function ssmailing_callback_subscriber_table() {
   // Initialize table
   $table = "";
 
+  $table .= "<div id='available_cats'><strong>Available Categories: </strong> ";
+  // Build out selected categories
+  foreach(get_categories() as $cat) {
+
+    // remove uncategorized from list and iterate over categories
+    if($cat->name !== "Uncategorized") {
+      $name = $cat->name;
+      $id =  $cat->id;
+      $table .="<input type='checkbox' class='cat_selection' name='selected_cat[".$id."]' id='".$id."' value='".$name."'><span class='cat_name'>".$name."</span></input>";
+    }
+
+  }
+
+  $table .="</div>";
+
   // Loop through categories so people can copy and paste them
   if($result){
 
-  $table .="</h3><table id='ssmailing_table'><tbody><tr><th>Email</th><th>Categories</th><th>Actions</th></tr>";
+  $table .="<table id='ssmailing_table'><tbody><tr><th>Email</th><th>Categories</th><th>Actions</th></tr>";
 
   // loop through all data retrieved from query to db
   foreach($result as $key => $value){

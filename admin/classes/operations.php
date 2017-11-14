@@ -8,7 +8,8 @@ class TableOperations {
 
   // variables used through out operation methods
   private $wpdb;
-  private $table_name;
+  private $ss_table;
+  private $cat_table;
   private $execute;
   private $flush;
 
@@ -17,8 +18,11 @@ class TableOperations {
     global $wpdb;
     $this->wpdb = $wpdb;
 
-    // get table
-    $this->table_name = $this->wpdb->prefix . "ss_subscribers";
+    // get subscriber table
+    $this->ss_table = $this->wpdb->prefix . "ss_subscribers";
+
+    // get categories table
+    $this->cat_table = $this->wpdb->prefix . "ss_selected_categories";
   }
 
   // execute query function
@@ -32,7 +36,7 @@ class TableOperations {
 
   // check if entry exists function
   public function check_entry_exists($email="") {
-    $check_query = "SELECT * FROM ".$this->table_name." WHERE email='".$email."' LIMIT 1";
+    $check_query = "SELECT * FROM ".$this->ss_table." WHERE email='".$email."' LIMIT 1";
     $verify_query = $this->wpdb->query($check_query);
     return $verify_query;
   }
@@ -41,7 +45,7 @@ class TableOperations {
   public function delete_subscriber($id=[]) {
 
     // deletion query
-    $sql = "DELETE FROM ".$this->table_name." WHERE id =".$id." LIMIT 1";
+    $sql = "DELETE FROM ".$this->ss_table." WHERE id =".$id." LIMIT 1";
 
     // execute query
     $this->execute_query($sql);
@@ -56,7 +60,7 @@ class TableOperations {
     $cats = sanitize_text_field($categories);
 
     // update query
-    $sql ="UPDATE ".$this->table_name." SET email='".$ems."', categories='".$cats."' WHERE id=".$id." LIMIT 1";
+    $sql ="UPDATE ".$this->ss_table." SET email='".$ems."', categories='".$cats."' WHERE id=".$id." LIMIT 1";
 
     // execute query
     $this->execute_query($sql);
@@ -87,7 +91,7 @@ class TableOperations {
     }else if(!$check_entry){
 
       // insert query
-      $sql = "INSERT INTO ".$this->table_name." (`id`, `time`, `email`, `categories`) VALUES (default ,NOW(),'".$email."','".$cats."')";
+      $sql = "INSERT INTO ".$this->ss_table." (`id`, `time`, `email`, `categories`) VALUES (default ,NOW(),'".$email."','".$cats."')";
 
       // execute query and update message
       $this->execute_query($sql);
@@ -102,7 +106,29 @@ class TableOperations {
   }
 
 
+  // Insert Cateory Table
+  public function insert_categories_table($categories="") {
 
+    // sanitize data before building query
+    $cats = sanitize_text_field($categories);
+
+    // build query remove current data and add new data
+
+    $del = "TRUNCATE TABLE ".$this->cat_table;
+    $sql = "INSERT INTO ".$this->cat_table." (`categories`) VALUES ('".$cats."')";
+
+    // remove all current categories
+    $this->execute_query($del);
+
+    // execute query
+    $this->execute_query($sql);
+
+  }
+
+  // Retrieve categories in Category table
+  public function retreive_categories_table() {
+
+  }
 
 }
 $table_operations = new TableOperations();

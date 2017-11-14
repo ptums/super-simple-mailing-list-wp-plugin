@@ -23,6 +23,7 @@ if(isset($_POST)) {
     $sub_cat = "";
     $sub_edit = "";
     $sub_del = "";
+    $selected_category = "";
 
     // update if specific date retrieved by POST request
     if(isset($_POST['id'])){
@@ -58,6 +59,16 @@ if(isset($_POST)) {
 
         }
 
+    }
+
+    // check if any categories are selected and push them into table
+    if(isset($_POST['selected_cat'])){
+
+        // change array of categories selected into a string
+        $text = implode(",", $_POST['selected_cat']);
+
+        // send string to inserted into category table
+        $table_operations->insert_categories_table($text);
     }
   }
 }
