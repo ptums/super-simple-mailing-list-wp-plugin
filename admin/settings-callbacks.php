@@ -13,12 +13,15 @@ function ssmailing_callback_section_login() {
   echo '<p>Here you can edit your subscriber list. Updating their email and selected categories.</p>';
 }
 
+// clean URL function
+
 
 // build subscriber table
 function ssmailing_callback_subscriber_table() {
   // query database for results
   global $wpdb;
   $result = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix.'ss_subscribers');
+
 
 
   /**
@@ -36,7 +39,7 @@ function ssmailing_callback_subscriber_table() {
     if($cat->name !== "Uncategorized") {
       $name = $cat->name;
       $id =  $cat->id;
-      $table .="<input type='checkbox' class='cat_selection' name='selected_cat[".$id."]' id='".$id."' value='".$name."'><span class='cat_name'>".$name."</span></input>";
+      $table .="<input type='checkbox' class='cat_selection' name='selected_cat[".$id."]' id='".$id."'/ value='".$name."'><span class='cat_name'>".$name."</span></input>";
     }
 
   }

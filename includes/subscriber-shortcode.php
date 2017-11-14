@@ -42,17 +42,19 @@ function ss_subscriber() {
     $selected_categories = array();
   }
 
-  $category_list = array();
 
+  // retieve selected categories and change them from a string to array
+  $retrieve_category = $table_operations->retreive_categories_table();
+  $category_string = "";
 
-  // loop through categories and push names into category_list
-
-  foreach(get_categories() as $cat) {
-    // remove uncategorized from list
-    if($cat->name !== "Uncategorized") {
-        $category_list[] = $cat->name;
-    }
+  // select category key and store it into $category_string
+  foreach($retrieve_category as $cat) {
+    $category_string = $cat;
   }
+
+  //change the string to an array
+  $category_to_array = explode(",", $category_string);
+
 
 
   // buildout HTML for form and render it to DOM
@@ -64,7 +66,7 @@ function ss_subscriber() {
   $signup_form .= "<div id='sselect_category_list'>";
   $signup_form .= "<ul>";
 
-  foreach($category_list as $item) {
+  foreach($category_to_array as $item) {
     $signup_form .="<li><div><input type='checkbox' name='cat[]' value='".$item."' class='sscat_item'id='".$item."'>";
     $signup_form .= "<label class='sscat_label' for='".$item."'>".$item."</label></div></li>";
   }

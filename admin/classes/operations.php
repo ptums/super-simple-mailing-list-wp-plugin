@@ -34,6 +34,7 @@ class TableOperations {
     $this->wpdb->flush();
   }
 
+
   // check if entry exists function
   public function check_entry_exists($email="") {
     $check_query = "SELECT * FROM ".$this->ss_table." WHERE email='".$email."' LIMIT 1";
@@ -127,6 +128,10 @@ class TableOperations {
 
   // Retrieve categories in Category table
   public function retreive_categories_table() {
+
+    // retrieve the category string from table
+    $category_string = $this->wpdb->get_results('SELECT * FROM '.$this->cat_table);
+    return $category_string[0];
 
   }
 
