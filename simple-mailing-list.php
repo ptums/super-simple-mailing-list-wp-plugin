@@ -37,8 +37,9 @@ require_once plugin_dir_path(__FILE__) . 'includes/subscriber-shortcode.php';
 add_shortcode('ss_subscriber', 'ss_subscriber');
 
 // Email Creation
-// require_once plugin_dir_path(__FILE__) . 'includes/email-creation.php';
+require_once plugin_dir_path(__FILE__) . 'includes/email-creation.php';
 // add_action('publish_post', 'send_post_notification_to_subscriber');
+send_post_notification_to_subscriber();
 
 
 
