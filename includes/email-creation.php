@@ -53,10 +53,21 @@ function send_post_notification_to_subscriber() {
   function send_email($email = "" , $id) {
       //retrieve post data
       $content = get_post_content($id);
-;
-      // Build out body of email
 
-      //wp_mail( $email, $subject, $message, $headers, $attachments );
+      // Build out body of email
+      if((isset($email)) && (isset($content))){
+
+        //wp_mail( $email, $subject, $message, $headers, $attachments );
+
+        /**
+        * GET INFO FROM EMAIL AND CONTENT TO BUILD EMAIL
+
+        **/
+        echo "<pre>";
+        print_r(bloginfo());
+        echo "</pre>";
+      }
+
 
   }
 
