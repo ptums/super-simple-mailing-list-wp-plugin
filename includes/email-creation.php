@@ -56,8 +56,7 @@ function send_post_notification_to_subscriber() {
 ;
       // Build out body of email
 
-
-      wp_mail( $email, $subject, $message, $headers, $attachments );
+      //wp_mail( $email, $subject, $message, $headers, $attachments );
 
   }
 
@@ -75,8 +74,6 @@ function send_post_notification_to_subscriber() {
     foreach($cats as $c){
       if($c == $category_name) {
         send_email($email, get_recent_post_id());
-      }else if ($c == "All") {
-        // run the email function again seperately
       }
     }
   }
