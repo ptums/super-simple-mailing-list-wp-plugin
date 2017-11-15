@@ -24,8 +24,3 @@ This plugin is a simple subscription plugin. It enables users to get emails when
    1. Disable Function after email sent. Set a timer to it.
    2. Enable HTML in email and limit content in body of email.
 2. Confirmation Email When user is subscribed.
-
-== Version 2 Additions ==
-1. Set up Settings Tab
-2. Settings Tab will have a form for user to input SMTP information
-  1. Alert user plugin will not work if SMTP information is not there.
