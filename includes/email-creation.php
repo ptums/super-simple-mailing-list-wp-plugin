@@ -1,9 +1,7 @@
 <?php // Shortcode Widget - Email Action Function
-//require_once("../../../../wp-load.php");
+
 // exit if file is called directly
 if( !defined('ABSPATH')) { exit; }
-
-
 
 function send_post_notification_to_subscriber() {
 
@@ -18,7 +16,6 @@ function send_post_notification_to_subscriber() {
     // return results
     return $email_list;
   }
-
 
   // function to get latest post id
   function get_recent_post_id(){
@@ -36,13 +33,12 @@ function send_post_notification_to_subscriber() {
   // get post title, date, and content
   function get_post_content($id="") {
 
-
+    //build a single array to ship to email function
     $post_content = array();
     $post_content[] = get_post($id)->post_title;
     $post_content[] = get_post($id)->post_date;
     $post_content[] = get_post($id)->post_content;
     $post_content[] = get_post($id)->guid;
-
 
     return $post_content;
   }
@@ -58,24 +54,8 @@ function send_post_notification_to_subscriber() {
         // Build out email and execute
         $subject = "New Post From ".get_bloginfo()." - ".$content[0];
         $message = "<strong><a href= '".$content[3]."'>".$content[0]."</a></strong> - ".$content[1]."<br/>".$content[2];
+        //wp_mail($email, $subject, $message);
 
-
-        echo "<pre>";
-        // to , subject, message, header, attachment
-        
-        $sent_email = wp_mail('ptumulty923@gmail.com', 'Test1 - Email', 'Can we get a single email?');
-        echo "</pre>";
-
-
-        // alert admin the success or failure of the email execution
-      //   if($sent_email) {
-      //     echo "This is working..";
-      //
-      //     return true;
-      //   }else{
-      //     echo "false";
-      //     return false;
-      //   }
     }
 
   }
@@ -94,8 +74,11 @@ function send_post_notification_to_subscriber() {
     foreach($cats as $c){
       if($c == $category_name) {
         send_email($email, get_recent_post_id());
+      }else{
+        send_email($email, get_recent_post_id());
       }
     }
+
   }
 
 
