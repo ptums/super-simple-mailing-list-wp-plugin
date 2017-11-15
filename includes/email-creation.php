@@ -1,14 +1,13 @@
 <?php // Shortcode Widget - Email Action Function
-
+//require_once("../../../../wp-load.php");
 // exit if file is called directly
 if( !defined('ABSPATH')) { exit; }
 
-// clean URL function
+
 
 function send_post_notification_to_subscriber() {
 
-
-
+  // Retrieve subscriber email and selected categories from database
   function subscriber_data(){
     // Load Email Class functions
     require_once clean_up_URLS('admin/classes/emails.php');
@@ -21,7 +20,7 @@ function send_post_notification_to_subscriber() {
   }
 
 
-  // function to get latest post and check category
+  // function to get latest post id
   function get_recent_post_id(){
 
     // grab the latest post id
@@ -34,8 +33,7 @@ function send_post_notification_to_subscriber() {
 
   }
 
-  // get post content based on id
-
+  // get post title, date, and content
   function get_post_content($id="") {
 
 
@@ -57,21 +55,27 @@ function send_post_notification_to_subscriber() {
       // Build out body of email
       if((isset($email)) && (isset($content))){
 
-        //wp_mail( $email, $subject, $message, $headers, $attachments );
+        // Build out email and execute
+        $subject = "New Post From ".get_bloginfo()." - ".$content[0];
+        $message = "<strong><a href= '".$content[3]."'>".$content[0]."</a></strong> - ".$content[1]."<br/>".$content[2];
+        
 
-        /**
-        * GET INFO FROM EMAIL AND CONTENT TO BUILD EMAIL
-
-        **/
-        echo "<pre>";
-        print_r(bloginfo());
-        echo "</pre>";
+        echo wp_mail( $email, $subject, $message, $headers='Sent From: info@sh-law.com', $attachments="");
+        // alert admin the success or failure of the email execution
+        // if($sent_email) {
+        //   echo "This is working..";
+        //   echo "true";
+        //   return true;
+        // }else{
+        //   echo "This isn't working..";
+        //   echo "false";
+        //   return false;
+        // }
       }
-
 
   }
 
-
+  // match if the category of the post is the same selected by the subscriber
   foreach(subscriber_data() as $ss) {
     // retrieve subscriber data from table
     $email = $ss->email;
@@ -89,12 +93,5 @@ function send_post_notification_to_subscriber() {
     }
   }
 
-
-
-
-  // execute email
-
-
-  return "Email Functionality will go here..";
 
 }

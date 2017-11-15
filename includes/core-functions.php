@@ -30,4 +30,11 @@ function ss_public_scripts() {
 // add styles to admin header
 add_action('wp_enqueue_scripts', 'ss_public_scripts' );
 
+
+// clean URL function
+function clean_up_URLS($url) {
+  $url = plugin_dir_path( __DIR__) . $url ;
+  return $url;
+}
+
  ?>

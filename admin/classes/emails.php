@@ -20,8 +20,7 @@ class Emails {
     // get subscriber table
     $this->ss_table = $this->wpdb->prefix . "ss_subscribers";
 
-    // get categories table
-    $this->cat_table = $this->wpdb->prefix . "ss_selected_categories";
+
   }
 
   // execute query function

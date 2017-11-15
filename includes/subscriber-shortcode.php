@@ -3,11 +3,6 @@
 // exit if file is called directly
 if( !defined('ABSPATH')) { exit; }
 
-// clean URL function
-function clean_up_URLS($url) {
-  $url = plugin_dir_path( __DIR__) . $url ;
-  return $url;
-}
 
 // shortcode function
 function ss_subscriber() {

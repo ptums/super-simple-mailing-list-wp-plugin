@@ -24,4 +24,3 @@ This plugin is a simple subscription plugin. It enables users to get emails when
     1. The users category selection is == to the category of the blog post
     2. Run the action function whenever a new post is published
 2. Confirmation Email When user is subscribed.
-3. Set up All to mean all categories
