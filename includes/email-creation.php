@@ -58,20 +58,25 @@ function send_post_notification_to_subscriber() {
         // Build out email and execute
         $subject = "New Post From ".get_bloginfo()." - ".$content[0];
         $message = "<strong><a href= '".$content[3]."'>".$content[0]."</a></strong> - ".$content[1]."<br/>".$content[2];
-        
 
-        echo wp_mail( $email, $subject, $message, $headers='Sent From: info@sh-law.com', $attachments="");
+
+        echo "<pre>";
+        // to , subject, message, header, attachment
+        
+        $sent_email = wp_mail('ptumulty923@gmail.com', 'Test1 - Email', 'Can we get a single email?');
+        echo "</pre>";
+
+
         // alert admin the success or failure of the email execution
-        // if($sent_email) {
-        //   echo "This is working..";
-        //   echo "true";
-        //   return true;
-        // }else{
-        //   echo "This isn't working..";
-        //   echo "false";
-        //   return false;
-        // }
-      }
+      //   if($sent_email) {
+      //     echo "This is working..";
+      //
+      //     return true;
+      //   }else{
+      //     echo "false";
+      //     return false;
+      //   }
+    }
 
   }
 

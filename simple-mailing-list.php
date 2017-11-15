@@ -11,10 +11,8 @@ License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
-
 // load style and script resources
 require_once plugin_dir_path(__FILE__) . 'includes/core-functions.php';
-
 
 // load functions from pluggable to allow the use of wp_mail
 require_once clean_up_URLS("../../../wp-includes/pluggable.php");
@@ -34,23 +32,14 @@ require_once plugin_dir_path(__FILE__) . 'admin/db.php';
 register_activation_hook( __FILE__, 'subscriber_db' );
 register_activation_hook( __FILE__, 'selected_category_db' );
 
-
-
 // Shortcode Creation
 require_once plugin_dir_path(__FILE__) . 'includes/subscriber-shortcode.php';
 add_shortcode('ss_subscriber', 'ss_subscriber');
 
 // Subscriber Email Post Creation
 require_once plugin_dir_path(__FILE__) . 'includes/email-creation.php';
-//add_action('publish_post', 'send_post_notification_to_subscriber');
-send_post_notification_to_subscriber();
+add_action('publish_post', 'send_post_notification_to_subscriber');
+
 // New Subscriber Welcome Email
-
-
-
-
-
-
-
 
 ?>
