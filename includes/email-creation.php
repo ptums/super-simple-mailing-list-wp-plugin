@@ -58,7 +58,11 @@ function send_post_notification_to_subscriber() {
 
         // Build out email and execute
         $subject = "New Post From ".get_bloginfo()." - ".$content[0];
+<<<<<<< HEAD
         $message = "<strong><a href= '".$content[3]."'>".$content[0]."</a></strong> - ".$content[1]."<br/>".$exceprt;
+=======
+        $message = "<strong><a href= '".$content[3]."'>".$content[0]."</a></strong> - ".$content[1]."<br/>".$content[2];
+>>>>>>> 7a23cb9b72e000b28219395cfb18703fd6f8c9ca
         //wp_mail($email, $subject, $message);
 
     }
@@ -80,7 +84,11 @@ function send_post_notification_to_subscriber() {
       if($c == $category_name) {
         send_email($email, get_recent_post_id());
       }else{
+<<<<<<< HEAD
         //send_email($email, get_recent_post_id());
+=======
+        send_email($email, get_recent_post_id());
+>>>>>>> 7a23cb9b72e000b28219395cfb18703fd6f8c9ca
       }
     }
 

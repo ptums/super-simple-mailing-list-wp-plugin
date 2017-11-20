@@ -14,9 +14,12 @@ License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 // load style and script resources
 require_once plugin_dir_path(__FILE__) . 'includes/core-functions.php';
 
+<<<<<<< HEAD
 //Enable updates to wp_mail to use valid SMTP Server information
 //require_once plugin_dir_path(__FILE__) . 'includes/smtp-config.php';
 
+=======
+>>>>>>> 7a23cb9b72e000b28219395cfb18703fd6f8c9ca
 // load functions from pluggable to allow the use of wp_mail
 require_once clean_up_URLS("../../../wp-includes/pluggable.php");
 
@@ -43,6 +46,7 @@ add_shortcode('ss_subscriber', 'ss_subscriber');
 require_once plugin_dir_path(__FILE__) . 'includes/email-creation.php';
 add_action('publish_post', 'send_post_notification_to_subscriber');
 
+// New Subscriber Welcome Email
 
 // New Subscriber Welcome Email
 ?>

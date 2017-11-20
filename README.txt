@@ -21,8 +21,8 @@ This plugin is a simple subscription plugin. It enables users to get emails when
 
 == To Do: ==
 1. Create an email action function that will fire whenever:
-    1. The users category selection is == to the category of the blog post
-    2. Run the action function whenever a new post is published
+   1. Disable Function after email sent. Set a timer to it.
+   2. Enable HTML in email and limit content in body of email.
 2. Confirmation Email When user is subscribed.
 3. Finalize shortcode style 
 
