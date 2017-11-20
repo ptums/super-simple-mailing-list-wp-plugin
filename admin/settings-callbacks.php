@@ -31,7 +31,7 @@ function ssmailing_callback_subscriber_table() {
   // Initialize table
   $table = "";
 
-  $table .= "<div id='available_cats'><strong>Available Categories: </strong> ";
+  $table .= "<div id='available_cats'><strong>Available Categories: </strong><br/>";
   // Build out selected categories
   foreach(get_categories() as $cat) {
 
@@ -39,7 +39,7 @@ function ssmailing_callback_subscriber_table() {
     if($cat->name !== "Uncategorized") {
       $name = $cat->name;
       $id =  $cat->id;
-      $table .="<input type='checkbox' class='cat_selection' name='selected_cat[".$id."]' id='".$id."'/ value='".$name."'><span class='cat_name'>".$name."</span></input>";
+      $table .="<div class='selection_input'><input type='checkbox' class='cat_selection' name='selected_cat[".$id."]' id='".$id."'/ value='".$name."'><span class='cat_name'>".$name."</span></input></div>";
     }
 
   }
@@ -57,9 +57,9 @@ function ssmailing_callback_subscriber_table() {
     $email = $value->email;
     $categories = $value->categories;
     $table .="<tr class='user-".$id."'>";
-    $table .="<td><input type='hidden' name='id[".$id."]' value='".$id."'/><input type='text' name='email[".$id."]' id='email' value='".$email."' style='width: 280px;'/></td>";
-    $table .="<td><input type='textarea' name='categories[".$id."]' id='categories' value='".$categories."' style='width:500px;'/></td><td>";
-    $table .="<input type='checkbox' name='edit_check[".$id."]' id='".$id."'/ value='Edit'>Edit</input> ";
+    $table .="<td><input type='hidden' name='id[".$id."]' value='".$id."'/><input type='text' name='email[".$id."]' class='email' value='".$email."' style='width: 280px;'/></td>";
+    $table .="<td><input type='textarea' name='categories[".$id."]' class='categories' value='".$categories."' style='width:500px;'/></td><td>";
+    $table .="<input type='checkbox' class='edit_selection'name='edit_check[".$id."]' id='".$id."'/ value='Edit'>Edit</input> ";
     $table .="<input type='checkbox'  style='margin-left:10px;' name='delete_check[".$id."]' id='".$id."'/ value='Delete'>Delete</input></tr>";
   }
 

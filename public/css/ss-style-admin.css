@@ -1,10 +1,11 @@
-#ssmailing_table {
+﻿#ssmailing_table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
     margin-top:10px;
     position:relative;
     right: 14%;
+    top:25px;
 }
 
 #available_cats {
@@ -40,3 +41,14 @@
     right: 222px;
     margin-top: -7px;
 }
+
+#available_cats strong {
+	font-size:22px;
+}
+.selection_input{
+	float: left;
+    width: 200px;
+    font-size: 12px;
+    margin: 4px;	
+}
+
