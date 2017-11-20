@@ -7,7 +7,7 @@ Tested up to: 4.8.3
 Stable tag: 1.0
 
 == Description ==
-This plugin is a simple subscription plugin. It enables users to get emails when latest posts are published by category
+This plugin is a simple subscription plugin. It enables users to get emails when latest posts are published by
 
 <b>Update November 14, 2017</b>
 
@@ -20,13 +20,8 @@ This plugin is a simple subscription plugin. It enables users to get emails when
 5. Navigate to Settings > Simple Subscription to select categories to be displayed and edit subscriber email and categories.
 
 == To Do: ==
-1. Create an email action function that will fire whenever:
-   1. Disable Function after email sent. Set a timer to it.
-   2. Enable HTML in email and limit content in body of email.
+1. Harden email action functionality:
+    1. Kill wp_mail function after it is executed for 20 minutes
+    2. Ensure that people who select two categories don't get two emails if the post shares both of those categories
 2. Confirmation Email When user is subscribed.
-3. Finalize shortcode style 
-
-== Version 2 Additions ==
-1. Set up Settings Tab
-2. Settings Tab will have a form for user to input SMTP information
-  1. Alert user plugin will not work if SMTP information is not there.
+3. Stylize Shortcode button and list
